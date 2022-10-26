@@ -5,6 +5,7 @@ import com.zb.weather.domain.DateWeather;
 import com.zb.weather.domain.Diary;
 import com.zb.weather.repository.DateWeatherRepository;
 import com.zb.weather.repository.DiaryRepository;
+import error.InvalidDate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -80,6 +81,9 @@ public class DiaryService {
 
     @Transactional(readOnly = true)
     public List<Diary> readDiary(LocalDate date){
+//        if(date.isAfter(LocalDate.ofYearDay(3050, 1))){
+//            throw new InvalidDate();
+//        }
         return diaryRepository.findAllByDate(date);
     }
 
