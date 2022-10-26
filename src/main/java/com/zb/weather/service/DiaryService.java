@@ -1,5 +1,6 @@
 package com.zb.weather.service;
 
+import com.zb.weather.WeatherApplication;
 import com.zb.weather.domain.DateWeather;
 import com.zb.weather.domain.Diary;
 import com.zb.weather.repository.DateWeatherRepository;
@@ -7,6 +8,8 @@ import com.zb.weather.repository.DiaryRepository;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -31,6 +34,8 @@ public class DiaryService {
 
     private final DiaryRepository diaryRepository;
     private final DateWeatherRepository dateWeatherRepository;
+
+    private static final Logger logger = LoggerFactory.getLogger(WeatherApplication.class);
 
     public DiaryService(DiaryRepository diaryRepository, DateWeatherRepository dateWeatherRepository){
         this.diaryRepository = diaryRepository;
