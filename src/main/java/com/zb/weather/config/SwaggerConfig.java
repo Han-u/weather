@@ -17,8 +17,8 @@ public class SwaggerConfig {
     public Docket api(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("zb.weather"))
-                .paths(PathSelectors.ant("/read/**"))
+                .apis(RequestHandlerSelectors.basePackage("com.zb.weather"))
+                .paths(PathSelectors.any())
                 .build().apiInfo(apiInfo());
     }
 
